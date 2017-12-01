@@ -1,3 +1,4 @@
+import "./styles/reset.css"
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, BrowserRouter, Route } from 'react-router-dom'
@@ -12,7 +13,6 @@ ReactDOM.render((
      <BrowserRouter>
      <Switch>
         <Route exact path='/' component={Home}/>
-        {/* both /roster and /roster/:number begin with /roster */}
         <Route path='/assessment' component={Assessment}/>
         <Route path='/results' component={Results}/>
       </Switch>
