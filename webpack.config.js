@@ -3,10 +3,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  devtool: 'eval',
+  devtool: "eval",
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    './app/index'
+    "whatwg-fetch",
+    "webpack-dev-server/client?http://localhost:3000",
+    "./app/index"
   ],
   output: {
     path: path.join(__dirname, 'dist'),
