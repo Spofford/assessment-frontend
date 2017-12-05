@@ -9,7 +9,21 @@ export class Results extends React.Component {
     super(props)
   }
 
+  submit() {
+    const user = {
+      username: document.getElementById("signup-username").value
+    }
+    this.props.dispatch(Actions.userNew(user))
+  }
+
   render() {
+    if (this.props.user) {
+      return (
+        <Chat>
+          <PhoenixChatbot />
+        </Chat>
+      )
+    }
     return (
       <div className={style.leader}>
         <h1 className={style.title}>Spofford Assessment</h1>
