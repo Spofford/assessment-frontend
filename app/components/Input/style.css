@@ -1,0 +1,11 @@
+input {
+  color: #585858;
+  border-radius: 2px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.large {
+  font-size: 1.2em;
+  padding: 0.8rem 1rem;
+}

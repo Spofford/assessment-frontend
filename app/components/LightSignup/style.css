@@ -7,11 +7,11 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   justify-content: center;
   padding: 2rem;
-  width: 400px;
+  // width: 400px;
 }
 
 .input {
@@ -23,7 +23,15 @@
 }
 
 .inputGroup {
-  display: flex;
-  flex-flow: column nowrap;
   padding: 10px 0;
+  width:100vh;
+}
+
+input {
+  margin-right:20px;
+  min-width:50%;
+}
+
+.button {
+  margin-top:-5px;
 }

@@ -6,6 +6,10 @@ import Actions from "../../redux/actions"
 
 import { default as Button } from "../Button"
 
+const mapStateToProps = state => ({
+  user: state.user
+})
+
 export class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -21,7 +25,7 @@ export class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props.user)
+
     return (
       <div className={style.wrapper}>
         <div className={style.form}>
@@ -51,8 +55,6 @@ export class Login extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user
-})
+
 
 export default connect(mapStateToProps)(cssModules(Login, style))

@@ -1,6 +1,6 @@
 const Actions = {}
 
-Actions.userNew = function userNew(user) {
+Actions.surveyNew = function surveyNew(user) {
   return dispatch => fetch("http://localhost:4000/api/users", {
     method: "POST",
     headers: {
@@ -37,8 +37,7 @@ Actions.userLogin = function userLogin(user) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      email: user.email,
-      password: user.password
+      username: user.username,
     })
   })
   .then((res) => { return res.json() })

@@ -5,6 +5,9 @@ import style from "./style.css"
 import Actions from "../../redux/actions"
 
 import { default as Button } from "../Button"
+import { default as Input } from "../Input"
+
+
 
 export class LightSignup extends React.Component {
   constructor(props) {
@@ -16,49 +19,32 @@ export class LightSignup extends React.Component {
     const user = {
       username: document.getElementById("signup-username").value
     }
-    this.props.dispatch(Actions.userNew(user))
+    this.props.dispatch(Actions.surveyNew(user))
   }
 
   render() {
     return (
-      <div className={style.wrapper}>
         <div className={style.form}>
           <div className={style.inputGroup}>
-            <input
-              placeholder="Username"
+            <Input
+              placeholder="First Name"
               className={style.input}
-              type="text"
+              type="large"
               id="signup-username" />
+              <Button
+                onClick={this.submit}
+                type="primary">
+                Start Assessment
+              </Button>
           </div>
-          <Button
-            onClick={this.submit}
-            style={{ width: "100%" }}
-            type="primary">
-            Submit
-          </Button>
+
         </div>
-      </div>
     )
   }
-  /*
-  submit() {
-    fetch("http://localhost:4000/api/users", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ test: "not going to work" })
-    })
-    .then((res) => { return res.json() })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.warn(err);
-    })
-  }
-  */
 }
 
-export default connect()(cssModules(LightSignup, style))
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(cssModules(LightSignup, style))
