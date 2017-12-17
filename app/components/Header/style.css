@@ -4,6 +4,7 @@
   top:0;
   right:0;
   height:10vh;
+  z-index:100;
   /* Rectangle: */
   background: #FFFFFF;
   box-shadow: 0 4px 4px 0 rgba(174,174,174,0.50);
