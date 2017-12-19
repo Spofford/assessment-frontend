@@ -1,5 +1,5 @@
-import "./styles/reset.css"
-import "./styles/fonts.css"
+import "./styles/main.css"
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom'

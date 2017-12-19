@@ -1,0 +1,16 @@
+@import './fonts.css';
+@import './reset.css';
+
+.body {
+  width:100vh;
+  font-weight:400;
+  font-size:1.2em;
+  margin:40px 0px;
+  line-height: 1.5em;
+}
+
+p {
+  font-family: inherit;
+  font-family: 'Montserrat', sans-serif;
+  line-height:1.2em;
+}

@@ -29,6 +29,26 @@ Actions.surveyNew = function surveyNew(user) {
   })
 }
 
+Actions.getQuestion = function getQuestion(question) {
+  return dispatch => fetch(`http://localhost:4000/api/questions?order=${question.order_id}`)
+  .then((res) => {
+    return res.json()
+  })
+  .then((res) => {
+    // console.log(res)
+    /* Then send action to reducer */
+    dispatch({
+      type: "NEXT_QUESTION",
+      payload: {
+        question: res
+      }
+    })
+  })
+  .catch((err) => {
+    console.warn(err)
+  })
+}
+
 Actions.userLogin = function userLogin(user) {
   return dispatch => fetch("http://localhost:4000/auth/identity/callback", {
     method: "POST",

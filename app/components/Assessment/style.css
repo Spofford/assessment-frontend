@@ -1,18 +1,32 @@
 .leader {
   height: 100vh;
-  display: flex;
+  // display: flex;
   position: relative;
   //align-items: center;
   //justify-content: center;
   //flex-flow: column nowrap;
   background: white;
-  background-color:#979797;
+  //border: 1px solid black;
   max-width:940px;
   margin:0px auto;
-  padding-top:60px;
+  padding-top:100px;
 }
 
 .title {
   font-size: 1.8em;
   color: rgb(239, 95, 78);
+}
+
+.standard {
+  /* Rectangle 9: */
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 2px;
+  max-width:450px;
+  padding:20px;
+  // flex-wrap: wrap;
+}
+
+.standard p:not(:last-child) {
+  margin-bottom:10px;
 }

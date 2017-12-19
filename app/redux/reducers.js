@@ -1,5 +1,21 @@
 import { combineReducers } from "redux"
 
+function question(state = {
+  text: "",
+  question_type: "",
+  response_choices: []
+}, action) {
+  switch (action.type) {
+    case "NEXT_QUESTION":
+      return Object.assign({}, state, {
+        text: action.payload.question.text,
+        question_type: action.payload.question.question_type,
+        response_choices: action.payload.question.response_choices
+      })
+    default: return state
+  }
+}
+
 function user(state = {
   username: "",
   id: "",
@@ -25,7 +41,7 @@ function user(state = {
 }
 
 const reducers = combineReducers({
-  user
+  user, question
 })
 
 export default reducers
