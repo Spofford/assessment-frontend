@@ -7,6 +7,7 @@ function question(state = {
 }, action) {
   switch (action.type) {
     case "NEXT_QUESTION":
+      // console.log(action.payload.question)
       return Object.assign({}, state, {
         text: action.payload.question.text,
         question_type: action.payload.question.question_type,

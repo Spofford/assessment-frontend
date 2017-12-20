@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 export class Basic extends React.Component {
   componentDidMount() {
-    console.log(this.props.question)
+
   }
 
   submit() {
@@ -25,8 +25,9 @@ export class Basic extends React.Component {
 
   render() {
     const data =this.props.question.response_choices;
-    const listItems = data.map((d) => <ResponseButton type="response" key={d.id} id={d.id}>{d.text}</ResponseButton>);
+    const listItems = data.map((d) => <ResponseButton type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
 
+    listItems.push(<ResponseButton type={null} key={7} id={7}>Test</ResponseButton>)
     return (
       <div>
         {listItems}

@@ -1,3 +1,12 @@
+.buttonContainer {
+  float:left;
+  width:48%;
+}
+
+.buttonContainer:nth-child(odd) {
+  margin-right:4%;
+}
+
 .button {
   color: white;
   border-radius: 2px;
@@ -7,30 +16,34 @@
   align-self: center;
   outline: none;
   font-family: 'Montserrat', sans-serif;
+  width:100%;
 }
 
 .response {
   composes: button;
   font-size:14px;
-  width:48%;
   box-shadow: 0 2px 2px 0 #979797;
   color: #333;
   margin-bottom:10px;
 }
 
-.response:nth-child(odd) {
-  margin-right:4%;
-}
-
 .chosen {
   font-size:14px;
-  width:48%;
   composes: button;
   background: rgb(89, 218, 82);
   box-shadow: 0 2px 2px 0 #27A520;
   margin-bottom:10px;
 }
 
-.chosen:nth-child(odd) {
-  margin-right:4%;
+.openInput {
+  width:460px;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  border-bottom:1px solid #757575;
 }
+
+.openInput:focus { outline:none; }
+
+.openInput::placeholder { color: #979797 }
