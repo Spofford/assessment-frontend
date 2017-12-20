@@ -3,6 +3,7 @@ import React from "react"
 import cssModules from "react-css-modules"
 import style from "./style.css"
 import Actions from "../../redux/actions"
+import { default as Basic } from "../Basic"
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -11,7 +12,6 @@ const mapStateToProps = state => ({
 
 export class Question extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     const question = {
       survey_id: 1,
       order_id: 1
@@ -28,10 +28,21 @@ export class Question extends React.Component {
   }
 
   render() {
-    return (
-      <div className={style.questioncontainer}>
-        <p>{this.props.question.text}</p>
+    const type = this.props.question.question_type
 
+    let responses = null;
+    if (type =="basic") {
+      responses = <Basic />;
+    }
+
+    return (
+      <div className={style.questionContainer}>
+        <div className={style.standard}>
+          <p>{this.props.question.text}</p>
+        </div>
+        <div className={style.response}>
+          {responses}
+        </div>
       </div>
     )
   }

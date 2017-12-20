@@ -24,7 +24,7 @@
   border-radius: 2px;
   max-width:450px;
   padding:20px;
-  // flex-wrap: wrap;
+  margin-bottom:20px;
 }
 
 .standard p:not(:last-child) {

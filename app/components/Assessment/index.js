@@ -23,8 +23,9 @@ export class Assessment extends React.Component {
             <p><strong>Hi, {this.props.user.username}.</strong> We’re really happy to meet you. This questionnaire is what we could think up as the next best thing to getting to know you over coffee. We’ve created this to learn how we can better help you, and the best way to bring people together to create spaces.</p>
             <p>This questionnaire is totally anonymous.</p>
           </div>
+          <Question />
         </div>
-        <Question />
+
       </div>
     )
   }

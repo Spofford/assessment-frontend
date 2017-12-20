@@ -1,0 +1,22 @@
+.standard {
+  /* Rectangle 9: */
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 2px;
+  max-width:450px;
+  padding:20px;
+  // flex-wrap: wrap;
+  margin-bottom:20px;
+}
+
+.response {
+  /* Rectangle 9: */
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  border-radius: 2px;
+  width:500px;
+  padding:20px;
+  // flex-wrap: wrap;
+  margin-bottom:20px;
+  float:right;
+}
