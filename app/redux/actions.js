@@ -35,7 +35,6 @@ Actions.getQuestion = function getQuestion(question) {
     return res.json()
   })
   .then((res) => {
-    // console.log(res)
     /* Then send action to reducer */
     dispatch({
       type: "NEXT_QUESTION",
@@ -89,7 +88,7 @@ Actions.userAuth = function userAuth() {
     dispatch({
       type: "USER_AUTH",
       payload: {
-        user: res.data
+        user: res
       }
     })
   })

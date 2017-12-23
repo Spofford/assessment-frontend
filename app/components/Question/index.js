@@ -13,7 +13,6 @@ const mapStateToProps = state => ({
 export class Question extends React.Component {
   componentDidMount() {
     const question = {
-      survey_id: 1,
       order_id: 1
     }
     this.props.dispatch(Actions.getQuestion(question))

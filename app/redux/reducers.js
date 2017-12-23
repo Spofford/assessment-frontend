@@ -7,7 +7,6 @@ function question(state = {
 }, action) {
   switch (action.type) {
     case "NEXT_QUESTION":
-      // console.log(action.payload.question)
       return Object.assign({}, state, {
         text: action.payload.question.text,
         question_type: action.payload.question.question_type,
@@ -25,17 +24,20 @@ function user(state = {
     case "USER_NEW":
       return Object.assign({}, state, {
         username: action.payload.user.username,
-        id: action.payload.user.id
+        id: action.payload.user.id,
+        survey: action.payload.data.survey.id
       })
     case "USER_LOGIN":
       return Object.assign({}, state, {
         username: action.payload.user.username,
-        id: action.payload.user.id
+        id: action.payload.user.id,
+        survey: action.payload.data.survey.id
       })
     case "USER_AUTH":
       return Object.assign({}, state, {
         username: action.payload.user.username,
-        id: action.payload.user.id
+        id: action.payload.user.id,
+        survey: action.payload.user.survey.id
       })
     default: return state
   }

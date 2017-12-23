@@ -23,11 +23,15 @@ export class Basic extends React.Component {
     super(props)
   }
 
+  handleSelect = (selectValue) => {
+    console.log(selectValue);
+  }
+
+
   render() {
     const data =this.props.question.response_choices;
-    const listItems = data.map((d) => <ResponseButton type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
+    const listItems = data.map((d) => <ResponseButton onSelectAnswer={this.handleSelect} type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
 
-    listItems.push(<ResponseButton type={null} key={7} id={7}>Test</ResponseButton>)
     return (
       <div>
         {listItems}
