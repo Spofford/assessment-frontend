@@ -15,20 +15,41 @@ class ResponseButton extends React.Component {
   }
 
   updateInputValue = (evt) => {
+
     this.setState({
       inputValue: evt.target.value
     });
+
+    let selected = null
+
+    if(evt.target.value) {
+      selected = true;
+    } else {
+      selected = false;
+    }
+
+    this.props.onSelectAnswer({
+      id: this.props.id,
+      text: evt.target.value,
+      selected: selected
+    })
+
+    /*
+
+    */
   }
 
   handleClick() {
-
-
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }));
 
-    if (!this.state.isToggleOn) {
-      this.props.onSelectAnswer(this.props.id)
+    let self = this;
+    if (!this.props.type) {
+      this.props.onSelectAnswer({
+        id: this.props.id,
+        selected: !self.state.isToggleOn
+      })
     }
   }
 

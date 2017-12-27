@@ -10,9 +10,22 @@ const mapStateToProps = state => ({
   question: state.question
 })
 
-export class Basic extends React.Component {
-  componentDidMount() {
+const submitData = [];
 
+export class Basic extends React.Component {
+
+
+  componentDidMount() {
+    const data = this.props.question.response_choices;
+    data.forEach(function(arg) {
+      submitData.push(
+        {
+          id:arg.id,
+          selected:false,
+          text:null
+        }
+      )
+    })
   }
 
   submit() {
@@ -24,12 +37,16 @@ export class Basic extends React.Component {
   }
 
   handleSelect = (selectValue) => {
-    console.log(selectValue);
+    var obj = submitData.find(function (obj) { return obj.id === selectValue.id; });
+    // console.log(selectValue)
+    obj.selected = selectValue.selected
+    obj.text = selectValue.text
+    console.log(submitData)
   }
 
 
   render() {
-    const data =this.props.question.response_choices;
+    const data = this.props.question.response_choices;
     const listItems = data.map((d) => <ResponseButton onSelectAnswer={this.handleSelect} type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
 
     return (
