@@ -34,14 +34,26 @@ export class Basic extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      ready: false
+    }
   }
 
   handleSelect = (selectValue) => {
-    var obj = submitData.find(function (obj) { return obj.id === selectValue.id; });
-    // console.log(selectValue)
+    let obj = submitData.find(function (obj) { return obj.id === selectValue.id; });
     obj.selected = selectValue.selected
     obj.text = selectValue.text
-    console.log(submitData)
+    let self = this
+    var found = false;
+    for(var i = 0; i < submitData.length; i++) {
+      if (submitData[i].selected == true) {
+          self.setState({ ready: true },
+          console.log(this.state))
+          break;
+      } else {
+        self.setState({ ready: false })
+      }
+    }
   }
 
 
@@ -49,9 +61,11 @@ export class Basic extends React.Component {
     const data = this.props.question.response_choices;
     const listItems = data.map((d) => <ResponseButton onSelectAnswer={this.handleSelect} type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
 
+    //console.log(this.props.ready)
     return (
       <div>
         {listItems}
+        { this.state.ready ? <h4 className={style.submitLink} onClick={this.submit}>Submit answers and continue</h4> : null }
       </div>
     )
   }
