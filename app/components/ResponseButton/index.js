@@ -31,7 +31,7 @@ class ResponseButton extends React.Component {
     this.props.onSelectAnswer({
       id: this.props.id,
       text: evt.target.value,
-      selected: selected
+      response_value: selected
     })
 
     /*
@@ -48,7 +48,7 @@ class ResponseButton extends React.Component {
     if (!this.props.type) {
       this.props.onSelectAnswer({
         id: this.props.id,
-        selected: !self.state.isToggleOn
+        response_value: !self.state.isToggleOn
       })
     }
   }

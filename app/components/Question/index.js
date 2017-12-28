@@ -4,6 +4,7 @@ import cssModules from "react-css-modules"
 import style from "./style.css"
 import Actions from "../../redux/actions"
 import { default as Basic } from "../Basic"
+import { combineReducers } from 'redux'
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -33,6 +34,8 @@ export class Question extends React.Component {
     if (type =="basic") {
       responses = <Basic />;
     }
+
+    
 
     return (
       <div className={style.questionContainer}>

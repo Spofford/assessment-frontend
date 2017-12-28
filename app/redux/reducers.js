@@ -25,26 +25,24 @@ function user(state = {
       return Object.assign({}, state, {
         username: action.payload.user.username,
         id: action.payload.user.id,
-        survey: action.payload.data.survey.id
       })
     case "USER_LOGIN":
       return Object.assign({}, state, {
         username: action.payload.user.username,
         id: action.payload.user.id,
-        survey: action.payload.data.survey.id
       })
     case "USER_AUTH":
       return Object.assign({}, state, {
         username: action.payload.user.username,
         id: action.payload.user.id,
-        survey: action.payload.user.survey.id
       })
     default: return state
   }
 }
 
 const reducers = combineReducers({
-  user, question
+  user,
+  question
 })
 
 export default reducers

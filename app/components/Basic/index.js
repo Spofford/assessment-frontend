@@ -3,6 +3,7 @@ import React from "react"
 import cssModules from "react-css-modules"
 import style from "./style.css"
 import Actions from "../../redux/actions"
+import { combineReducers } from 'redux'
 import { default as ResponseButton } from "../ResponseButton"
 
 const mapStateToProps = state => ({
@@ -13,42 +14,49 @@ const mapStateToProps = state => ({
 const submitData = [];
 
 export class Basic extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.submit = this.submit.bind(this)
+    this.state = {
+      ready: false
+    }
+  }
 
   componentDidMount() {
     const data = this.props.question.response_choices;
+    const user = this.props.user.id;
+
     data.forEach(function(arg) {
       submitData.push(
         {
-          id:arg.id,
-          selected:false,
-          text:null
+          user: {id: user},
+          response_choice: {id: arg.id},
+          response_value: false,
+          text: null
         }
       )
     })
   }
 
   submit() {
-
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      ready: false
+    const user = this.props.user.id
+    for(var i = 0; i < submitData.length; i++) {
+      submitData[i].user.id = user
+      this.props.dispatch(Actions.submitData(submitData[i]))
     }
+    console.log(submitData)
   }
 
   handleSelect = (selectValue) => {
-    let obj = submitData.find(function (obj) { return obj.id === selectValue.id; });
-    obj.selected = selectValue.selected
+    let obj = submitData.find(function (obj) { return obj.response_choice.id === selectValue.id; });
+    obj.response_value = selectValue.response_value
     obj.text = selectValue.text
+    obj.user.id = this.props.user.id
     let self = this
     var found = false;
     for(var i = 0; i < submitData.length; i++) {
-      if (submitData[i].selected == true) {
-          self.setState({ ready: true },
-          console.log(this.state))
+      if (submitData[i].response_value == true) {
+          self.setState({ ready: true })
           break;
       } else {
         self.setState({ ready: false })
@@ -61,7 +69,6 @@ export class Basic extends React.Component {
     const data = this.props.question.response_choices;
     const listItems = data.map((d) => <ResponseButton onSelectAnswer={this.handleSelect} type={d.open} key={d.id} id={d.id}>{d.text}</ResponseButton>);
 
-    //console.log(this.props.ready)
     return (
       <div>
         {listItems}

@@ -30,7 +30,7 @@ Actions.surveyNew = function surveyNew(user) {
 }
 
 Actions.getQuestion = function getQuestion(question) {
-  return dispatch => fetch(`http://localhost:4000/api/questions?order=${question.order_id}`)
+  return dispatch => fetch(`http://localhost:4000/api/questions?order_value=${question.order_id}`)
   .then((res) => {
     return res.json()
   })
@@ -45,6 +45,20 @@ Actions.getQuestion = function getQuestion(question) {
   })
   .catch((err) => {
     console.warn(err)
+  })
+}
+
+Actions.submitData = function submitData(response) {
+  return dispatch => fetch("http://localhost:4000/api/responses", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ response })
+  })
+  .then((res) => {
+    return res.json()
   })
 }
 
